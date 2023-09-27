@@ -7,5 +7,5 @@ RUN composer install --optimize-autoloader --no-dev --ignore-platform-reqs --no-
 FROM php:8.1.8
 COPY --from=composer_build /app/ /app/
 WORKDIR /app
-CMD php artisan serve --host=0.0.0.0 --port 80
-EXPOSE 80
+CMD php artisan serve --host=0.0.0.0 --port $PORT
+EXPOSE $PORT
